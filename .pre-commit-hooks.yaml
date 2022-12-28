@@ -3,26 +3,28 @@
   language: system
   entry: mix format
   files: \.exs?$
+  stages: [commit, merge-commit, push, manual]
 - id: elixir-mix-credo
   name: mix credo
   language: system
   entry: mix credo
+  stages: [commit, merge-commit, push, manual]
   pass_filenames: false
 - id: elixir-mix-deps-check-unused
   name: mix deps.unlock
   language: system
   entry: mix deps.unlock --check-unused
-  stages: [push]
+  stages: [commit, merge-commit, push, manual]
   pass_filenames: false
 - id: elixir-mix-dialyzer
   name: mix dialyzer
   language: system
   entry: mix dialyzer
-  stages: [push]
+  stages: [commit, merge-commit, push, manual]
   pass_filenames: false
 - id: elixir-mix-test
   name: mix test
   language: system
   entry: mix test
-  stages: [push]
+  stages: [commit, merge-commit, push, manual]
   pass_filenames: false
