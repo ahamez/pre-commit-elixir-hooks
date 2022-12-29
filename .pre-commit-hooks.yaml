@@ -1,29 +1,34 @@
 - id: elixir-mix-format
   name: mix format
+  description: Format Elixir files
   language: system
   entry: mix format
   files: \.exs?$
   stages: [commit, merge-commit, push, manual]
 - id: elixir-mix-credo
   name: mix credo
+  description: Launch credo static code analysis
   language: system
   entry: mix credo
   stages: [commit, merge-commit, push, manual]
   pass_filenames: false
 - id: elixir-mix-deps-check-unused
   name: mix deps.unlock
+  description: Check for unused dependencies
   language: system
   entry: mix deps.unlock --check-unused
   stages: [commit, merge-commit, push, manual]
   pass_filenames: false
 - id: elixir-mix-dialyzer
   name: mix dialyzer
+  description: Launch dialyzer
   language: system
   entry: mix dialyzer
   stages: [commit, merge-commit, push, manual]
   pass_filenames: false
 - id: elixir-mix-test
   name: mix test
+  description: Launch tests
   language: system
   entry: mix test
   stages: [commit, merge-commit, push, manual]
